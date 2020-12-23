@@ -1,0 +1,4 @@
+{
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "cmake.configureArgs": ["-DCMAKE_TOOLCHAIN_FILE=C:/Users/Jeremy/git_repos/mqtt_pi/toolchain.cmake"]
+}
