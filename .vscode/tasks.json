@@ -1,0 +1,28 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Copy Program To Raspberry Pi",
+            "command": "pscp -pw raspberry -scp ${command:cmake.launchTargetPath} pi@raspberrypi:projects/${command:cmake.launchTargetFilename}", // pi@raspberrypi works w/o password because key installed on target
+            "detail": "Use pscp to copy executable to Raspberry PI."
+        },
+        {
+            "type": "shell",
+            "label": "Start GDB On Raspberry PI",
+            "command": ". ${fileWorkspaceFolder}\\test.sh ${command:cmake.launchTargetFilename} ${command:cmake.buildDirectory}",
+            "detail": "Make program executable on target and start GDB server on target.",
+            "isBackground": false,
+            "runOptions": {}
+        },
+        {
+            "label": "Compile/Copy To Raspberry Pi",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                //"C/C++: Cross Compile Raspberry Pi",
+                "Copy Program To Raspberry Pi", 
+                "Start GDB On Raspberry PI",
+            ]
+        },
+    ],
+    "version": "2.0.0"
+}
