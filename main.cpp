@@ -6,4 +6,5 @@ using std::endl;
 
 int main(int, char**) {
     cout << "Project name: " << PROJECT_NAME << " Version: " << PROJECT_VER << endl;
+    cout << "Just adding some more text for another breakpoint location" << endl;
 }

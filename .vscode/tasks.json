@@ -15,7 +15,7 @@
             "runOptions": {}
         },
         {
-            "label": "Compile/Copy To Raspberry Pi",
+            "label": "Copy To Raspberry Pi And Start GDB Server",
             "dependsOrder": "sequence",
             "dependsOn": [
                 //"C/C++: Cross Compile Raspberry Pi",

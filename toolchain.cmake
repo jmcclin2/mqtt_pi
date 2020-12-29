@@ -10,7 +10,8 @@ set(CMAKE_CXX_COMPILER ${tools}/arm-linux-gnueabihf-g++.exe)
 set(CMAKE_SYSROOT ${sysroot_target})
 
 # COMPILER SETTINGS FOR RASPBERRY PI 4
-SET(CMAKE_CXX_FLAGS "-v -O2 -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -march=armv8-a+crc -mcpu=cortex-a72 --sysroot=${sysroot_target}")
+#SET(CMAKE_CXX_FLAGS "-v -O2 -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -march=armv8-a+crc -mcpu=cortex-a72 --sysroot=${sysroot_target}")
+SET(CMAKE_CXX_FLAGS "-v -mfpu=crypto-neon-fp-armv8 -mfloat-abi=hard -march=armv8-a+crc -mcpu=cortex-a72 --sysroot=${sysroot_target}")
 SET(CMAKE_C_FLAGS ${CMAKE_CXX_FLAGS})
 SET(CMAKE_EXE_LINKER_FLAGS "--sysroot=${sysroot_target}")
 set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
