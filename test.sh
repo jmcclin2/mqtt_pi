@@ -21,4 +21,4 @@ ssh pi@raspberrypi "sudo chmod +x ./projects/$PROG_NAME | sudo gdbserver localho
 
 wait
 
-read -p "Press any key to exit" 
+read -p "Press ENTER key to continue" 
