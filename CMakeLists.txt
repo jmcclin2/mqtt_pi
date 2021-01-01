@@ -20,6 +20,21 @@ target_include_directories(mqtt_pi_client
     #source/
 )
 
+# Build Paho MQTT C as lib to be used by Paho MQTT C++
+set(PAHO_ENABLE_TESTING FALSE)
+set(PAHO_BUILD_STATIC TRUE)
+set(PAHO_WITH_SSL TRUE)
+set(PAHO_HIGH_PERFORMANCE TRUE)
+add_subdirectory(paho.mqtt.c)
+
+# Specify where the MQTT C libs/headers can be found
+#list(APPEND CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/build/paho.mqtt.c/src")
+set(PAHO_MQTT_C_LIBRARIES ${CMAKE_CURRENT_SOURCE_DIR}/build/paho.mqtt.c/src/libpaho-mqtt3cs.so) #TODO: Determine what lib we actually want to link to - there are three variants
+set(PAHO_MQTT_C_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/paho.mqtt.c/src)
+
+# Many of the above Paho MQTT C settings apply to C++ as well
+add_subdirectory(paho.mqtt.cpp)
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
