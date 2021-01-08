@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 #project(mqtt_pi_client VERSION 0.1.0.0)
-project(mqtt_pi_client C CXX)
+project(mqtt_pi_client LANGUAGES C CXX VERSION 0.1.0.0)
 
 #include(CTest)
 #enable_testing()

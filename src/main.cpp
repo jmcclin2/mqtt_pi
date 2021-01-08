@@ -1,4 +1,4 @@
-#define BUILD_C_SAMPLE
+//#define BUILD_C_SAMPLE
 
 #ifdef BUILD_C_SAMPLE
 /*******************************************************************************
@@ -228,13 +228,13 @@ int main(int argc, char* argv[])
 #else
 
 #include <iostream>
-//#include "project_config.hpp"
-#include <cstdlib>
+#include "project_config.hpp"
+//#include <cstdlib>
 #include <string>
-#include <cstring>
-#include <cctype>
-#include <thread>
-#include <chrono>
+//#include <cstring>
+//#include <cctype>
+//#include <thread>
+//#include <chrono>
 #include "mqtt/async_client.h"
 
 using std::cout;
@@ -250,7 +250,6 @@ const int	N_RETRY_ATTEMPTS = 5;
 // Callbacks for the success or failures of requested actions.
 // This could be used to initiate further action, but here we just log the
 // results to the console.
-
 class action_listener : public virtual mqtt::iaction_listener
 {
 	std::string name_;
@@ -364,7 +363,10 @@ public:
 };
 
 int main(int, char**) {
-    //cout << "Project name: " << PROJECT_NAME << " Version: " << PROJECT_VER << endl;
+    cout << "Project name: " << PROJECT_NAME << " Version: " << PROJECT_VER << endl;
+
+	// The following is added to 'fix' a linker error regarding this function which is apparently resolved by its explicit inclusion here
+	const char * pResponse = MQTTReasonCode_toString(MQTTREASONCODE_SUCCESS);
 
     // A subscriber often wants the server to remember its messages when its
 	// disconnected. In that case, it needs a unique ClientID and a

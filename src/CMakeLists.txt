@@ -11,20 +11,14 @@ target_include_directories(mqtt_pi_client
     .
     ../paho.mqtt.c/src
     ../paho.mqtt.cpp/src
-)
-
-#find_library(PAHO_MQTT_C_LIB_PRO NAMES paho-mqtt3as PATHS ../build/paho.mqtt.c/src)
-#find_library(PAHO_MQTT_CPP_LIB_PRO NAMES paho-mqttpp3 PATHS ../build/paho.mqtt.cpp/src)
+) 
 
 target_link_directories(mqtt_pi_client PUBLIC ../build/paho.mqtt.c/src)
 target_link_directories(mqtt_pi_client PUBLIC ../build/paho.mqtt.cpp/src)
 
-#message("***PAHO_MQTT_C_LIB_PRO:${PAHO_MQTT_C_LIB_PRO}")
-#message("***PAHO_MQTT_CPP_LIB_PRO:${PAHO_MQTT_CPP_LIB_PRO}")
+# NOTE: toolchain.cmake ultimately supplies paths for pthread, ssl, and crypto which are supplied with toolchain distribution for our target
 
 target_link_libraries(mqtt_pi_client
-    #${PAHO_MQTT_C_LIB_PRO}
-    #${PAHO_MQTT_CPP_LIB_PRO}
     paho-mqtt3as
     paho-mqttpp3
     pthread
